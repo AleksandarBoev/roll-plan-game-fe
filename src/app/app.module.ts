@@ -7,6 +7,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LanguageSwitcherComponent} from './language-switcher/language-switcher.component';
+import {HearthComponent} from './hearth/hearth.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -14,7 +15,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent, LanguageSwitcherComponent
+    AppComponent, LanguageSwitcherComponent, HearthComponent
   ],
   imports: [
     BrowserModule,

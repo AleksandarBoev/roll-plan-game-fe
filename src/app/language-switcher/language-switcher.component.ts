@@ -3,10 +3,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-switcher',
-  template: `
-    <button (click)="switchLanguage('en')">English</button>
-    <button (click)="switchLanguage('fr')">French</button>
-  `,
+  template: ``,
   standalone: false
 })
 export class LanguageSwitcherComponent {

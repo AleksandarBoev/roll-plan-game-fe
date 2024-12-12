@@ -16,5 +16,6 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 | Version | Description                                |
 |---------|--------------------------------------------|
-| 0.0.0   | Add initial Angular Setup.                 |
+| 0.2.0   | Add simple and unfinished page             |
 | 0.1.0   | Add ngx-translate library and simple usage |
+| 0.0.0   | Add initial Angular Setup.                 |
