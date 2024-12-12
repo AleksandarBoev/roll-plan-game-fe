@@ -1,0 +1,7 @@
+{
+  "WELCOME": "Welcome",
+  "USER_MESSAGES": {
+    "HELLO": "Hello, User!",
+    "BYE": "Goodbye!"
+  }
+}
