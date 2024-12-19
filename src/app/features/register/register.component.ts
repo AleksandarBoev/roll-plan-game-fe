@@ -5,6 +5,7 @@ import {backendUrls} from '../../constants/backend-urls';
 import {localStorageKeys} from '../../constants/local-storage-keys';
 import {Router} from '@angular/router';
 import {routeValues} from '../../constants/route-values';
+import {StorageItem, StorageService} from '../utils/storage.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
   errorMessage: string = '';
   passwordMinLength: string = '5';
 
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private storageService: StorageService) {
   }
 
   registerUser() {
@@ -39,7 +40,8 @@ export class RegisterComponent {
 
     this.httpClient.post<UserRegistrationResponse>(backendUrls.REGISTER_URL, userRegistrationRequest)
       .subscribe(userRegistrationResponse => {
-        this.setDataToLocalStorage(userRegistrationResponse);
+        console.log('Saving to local storage via service')
+        this.storageService.saveToStorage(userRegistrationResponse);
         this.router.navigate([ routeValues.HEARTH ]);
         //TODO handle errors from BE. For example non-unique name has been entered (http 4xx) or BE had a weird issue (5xx)
       })
@@ -49,6 +51,8 @@ export class RegisterComponent {
     localStorage.setItem(localStorageKeys.JWT_TOKEN, userRegistrationResponse.jwtToken);
     localStorage.setItem(localStorageKeys.USER_ID, userRegistrationResponse.userId);
   }
+
+  protected readonly routeValues = routeValues;
 }
 
 interface UserRegistrationRequest {
@@ -56,7 +60,5 @@ interface UserRegistrationRequest {
   password: string;
 }
 
-interface UserRegistrationResponse {
-  userId: string;
-  jwtToken: string;
+interface UserRegistrationResponse extends StorageItem {
 }
