@@ -1,1 +1,32 @@
-<p>register works!</p>
+  <div class="container-fluid text-center">
+    <form #userRegistrationForm="ngForm" (ngSubmit)="registerUser()">
+      <div class="form-group">
+        <label for="name">
+          Name: <input type="text" id="name" name="username" class="form-control" placeholder="Name..."
+                       ngModel #nameInput='ngModel' [minlength]="nameMinLength" [maxlength]="nameMaxLength" required/>
+        </label>
+
+        <div *ngIf="nameInput.touched">
+          <p style="color: red" *ngIf="nameInput.errors">Name should be between {{nameMinLength}} and {{nameMaxLength}} symbols long.</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">
+          Password: <input type="password" id="password" name="password" class="form-control" placeholder="Password..."
+                           ngModel #passwordInput='ngModel' [minlength]="passwordMinLength" required/>
+        </label>
+
+        <div *ngIf="passwordInput.touched">
+          <p style="color: red" *ngIf="passwordInput.errors">Password should be at least {{passwordMinLength}} symbols long!</p>
+        </div>
+      </div>
+
+      <button class="btn btn-success" type="submit">Register</button>
+      <div *ngIf="errorMessage">
+        <p style="color: red">{{errorMessage}}</p>
+      </div>
+    </form>
+
+    <p>Already have a profile? <a routerLink="login">Login</a></p>
+  </div>

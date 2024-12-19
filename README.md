@@ -16,6 +16,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 | Version | Description                                                              |
 |---------|--------------------------------------------------------------------------|
+| 0.5.0   | Add register functionality and save jwt token from BE response           |
 | 0.4.0   | Remove translations library, introduce bootstrap 5.3.3, add some styling |
 | 0.3.0   | Add skeletons for main features, add basic navbar, add routing           |
 | 0.2.0   | Add simple and unfinished page                                           |

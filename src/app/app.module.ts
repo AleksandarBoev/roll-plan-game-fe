@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClient} from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {HearthComponent} from './features/hearth/hearth.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
@@ -14,6 +14,7 @@ import {RegisterComponent} from './features/register/register.component';
 import {LoginComponent} from './features/login/login.component';
 import {LogoutComponent} from './features/logout/logout.component';
 import {PageNotFoundComponent} from './features/page-not-found/page-not-found.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import {PageNotFoundComponent} from './features/page-not-found/page-not-found.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
 export class AppModule {
