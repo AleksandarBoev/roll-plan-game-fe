@@ -18,6 +18,10 @@ export class StorageService {
     localStorage.setItem(StorageService.USER_DATA_KEY, JSON.stringify(storageItemCopy));
   }
 
+  clearStorage() {
+    localStorage.removeItem(StorageService.USER_DATA_KEY);
+  }
+
   getUserId(): string {
     const userData = localStorage.getItem(StorageService.USER_DATA_KEY);
     if (userData) {

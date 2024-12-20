@@ -20,6 +20,7 @@ Instructions on how to run it can be found in it's README.
 
 | Version | Description                                                              |
 |---------|--------------------------------------------------------------------------|
+| 0.7.0   | Add logout functionality                                                 |
 | 0.6.0   | Add login functionality                                                  |
 | 0.5.0   | Add register functionality and save jwt token from BE response           |
 | 0.4.0   | Remove translations library, introduce bootstrap 5.3.3, add some styling |
