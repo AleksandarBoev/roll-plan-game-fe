@@ -1,0 +1,61 @@
+<form class="row g-3" #characterCreationForm="ngForm" (ngSubmit)="createCharacter()">
+  <div class="col-md-6">
+    <label for="name" class="form-label">Character Name</label>
+    <input type="text" class="form-control" id="name" name="name" ngModel placeholder="Character Name...">
+  </div>
+  <div class="col-md-6">
+    <label for="race" class="form-label">Race</label>
+    <select id="race" class="form-select" name="race" ngModel>
+      <option *ngFor="let race of getRaces()" [value]="race">{{ race }}</option>
+    </select>
+  </div>
+
+
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="genderMale" name="gender" value="{{Gender.MALE}}" ngModel />
+        <label class="form-check-label" for="genderMale">
+          {{ Gender.MALE }}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="genderFemale" name="gender" value="{{Gender.FEMALE}}" ngModel/>
+        <label class="form-check-label" for="genderFemale">
+          {{ Gender.FEMALE }}
+        </label>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="col-md-4">
+    <label for="strength" class="form-label" >Strength</label>
+    <input type="number" class="form-control" id="strength" name="strength" ngModel>
+  </div>
+  <div class="col-md-4">
+    <label for="dexterity" class="form-label" >Dexterity</label>
+    <input type="number" class="form-control" id="dexterity" name="dexterity" ngModel>
+  </div>
+  <div class="col-md-4">
+    <label for="constitution" class="form-label" >Constitution</label>
+    <input type="number" class="form-control" id="constitution" name="constitution" ngModel>
+  </div>
+
+  <div class="col-md-4">
+    <label for="intelligence" class="form-label" >Intelligence</label>
+    <input type="number" class="form-control" id="intelligence" name="intelligence" ngModel>
+  </div>
+  <div class="col-md-4">
+    <label for="wisdom" class="form-label" >Wisdom</label>
+    <input type="number" class="form-control" id="wisdom" name="wisdom" ngModel>
+  </div>
+  <div class="col-md-4">
+    <label for="charisma" class="form-label" >Charisma</label>
+    <input type="number" class="form-control" id="charisma" name="charisma" ngModel>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>

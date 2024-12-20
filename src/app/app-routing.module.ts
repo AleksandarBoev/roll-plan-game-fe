@@ -11,12 +11,14 @@ import {LogoutComponent} from './features/logout/logout.component';
 import {routeValues} from './constants/route-values';
 import {canActivateProtectedPage} from './core/security/app.guard';
 import {CharacterViewComponent} from './features/character/character-view/character-view.component';
+import {CharacterCreateComponent} from './features/character/character-create/character-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'hearth', pathMatch: 'full'},
   {path: routeValues.HEARTH, component: HearthComponent},
   {path: routeValues.CHARACTER, component: CharacterComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.CHARACTER_VIEW, component: CharacterViewComponent, canActivate: [canActivateProtectedPage]},
+  {path: routeValues.CHARACTER_CREATE, component: CharacterCreateComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.INVENTORY, component: InventoryComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.INTERACTIONS, component: InteractionsComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.REGISTER, component: RegisterComponent},

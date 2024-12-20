@@ -1,3 +1,7 @@
+<div class="center-button">
+  <a class="btn btn-success btn-lg crud-button" routerLink="/{{routeValues.CHARACTER_CREATE}}">Create
+    Character</a>
+</div>
 <div class="row">
   <div *ngFor="let character of characters" class="col-md-4 text-center overflow-hidden">
 
@@ -7,7 +11,7 @@
       <p>Gender: <strong>{{ character.gender }}</strong></p>
     </div>
 
-    <a class="btn btn-success btn-lg crud-button" (click)="viewCharacter(character)">View</a>
+    <a class="btn btn-secondary btn-lg crud-button" (click)="viewCharacter(character)">View</a>
     <a class="btn btn-primary btn-lg crud-button">Edit</a>
     <a class="btn btn-danger btn-lg crud-button">Delete</a>
   </div>

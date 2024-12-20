@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthenticationInterceptor} from './core/security/authentication.interceptor';
 import { CharacterViewComponent } from './features/character/character-view/character-view.component';
 import { ScoreModifierCalcPipe } from './features/character/character-view/ability-score-calc.pipe';
+import { CharacterCreateComponent } from './features/character/character-create/character-create.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ScoreModifierCalcPipe } from './features/character/character-view/abili
     LogoutComponent,
     PageNotFoundComponent,
     CharacterViewComponent,
-    ScoreModifierCalcPipe
+    ScoreModifierCalcPipe,
+    CharacterCreateComponent
   ],
   imports: [
     BrowserModule,

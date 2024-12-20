@@ -25,4 +25,6 @@ export class CharacterComponent implements OnInit {
   viewCharacter(character: Character): void {
     this.router.navigate(['character/view'], {state: {character}});
   }
+
+  protected readonly routeValues = routeValues;
 }
