@@ -20,6 +20,7 @@ Instructions on how to run it can be found in it's README.
 
 | Version | Description                                                              |
 |---------|--------------------------------------------------------------------------|
+| 0.8.0   | Add navbar item logic for logged in users and implement auth guard       |
 | 0.7.0   | Add logout functionality                                                 |
 | 0.6.0   | Add login functionality                                                  |
 | 0.5.0   | Add register functionality and save jwt token from BE response           |

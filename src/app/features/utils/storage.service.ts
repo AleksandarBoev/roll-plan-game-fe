@@ -41,6 +41,14 @@ export class StorageService {
       return '';
     }
   }
+
+  isLoggedIn(): boolean {
+    if (this.getJwtToken()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 export interface StorageItem {

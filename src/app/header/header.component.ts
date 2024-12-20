@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {routeValues} from '../constants/route-values';
+import {StorageService} from '../features/utils/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,7 @@ import {routeValues} from '../constants/route-values';
 export class HeaderComponent {
 
   protected readonly routeValues = routeValues;
+
+  constructor(public storageService: StorageService) {
+  }
 }
