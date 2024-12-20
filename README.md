@@ -18,14 +18,15 @@ Instructions on how to run it can be found in it's README.
 
 ## Versions
 
-| Version | Description                                                              |
-|---------|--------------------------------------------------------------------------|
-| 0.8.0   | Add navbar item logic for logged in users and implement auth guard       |
-| 0.7.0   | Add logout functionality                                                 |
-| 0.6.0   | Add login functionality                                                  |
-| 0.5.0   | Add register functionality and save jwt token from BE response           |
-| 0.4.0   | Remove translations library, introduce bootstrap 5.3.3, add some styling |
-| 0.3.0   | Add skeletons for main features, add basic navbar, add routing           |
-| 0.2.0   | Add simple and unfinished page                                           |
-| 0.1.0   | Add ngx-translate library and simple usage                               |
-| 0.0.0   | Add initial Angular Setup.                                               |
+| Version | Description                                                                                        |
+|---------|----------------------------------------------------------------------------------------------------|
+| 0.9.0   | Send jwt authorization header for each BE request, add character listing and single character view |
+| 0.8.0   | Add navbar item logic for logged in users and implement auth guard                                 |
+| 0.7.0   | Add logout functionality                                                                           |
+| 0.6.0   | Add login functionality                                                                            |
+| 0.5.0   | Add register functionality and save jwt token from BE response                                     |
+| 0.4.0   | Remove translations library, introduce bootstrap 5.3.3, add some styling                           |
+| 0.3.0   | Add skeletons for main features, add basic navbar, add routing                                     |
+| 0.2.0   | Add simple and unfinished page                                                                     |
+| 0.1.0   | Add ngx-translate library and simple usage                                                         |
+| 0.0.0   | Add initial Angular Setup.                                                                         |

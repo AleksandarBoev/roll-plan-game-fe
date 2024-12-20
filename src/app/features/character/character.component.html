@@ -1,1 +1,14 @@
-<p>character works!</p>
+<div class="row">
+  <div *ngFor="let character of characters" class="col-md-4 text-center overflow-hidden">
+
+    <div class="my-3 p-3">
+      <p style="font-size: 30px" class="display-5">{{ character.name }}</p>
+      <p>Race: <strong>{{ character.race }}</strong></p>
+      <p>Gender: <strong>{{ character.gender }}</strong></p>
+    </div>
+
+    <a class="btn btn-success btn-lg crud-button" (click)="viewCharacter(character)">View</a>
+    <a class="btn btn-primary btn-lg crud-button">Edit</a>
+    <a class="btn btn-danger btn-lg crud-button">Delete</a>
+  </div>
+</div>
