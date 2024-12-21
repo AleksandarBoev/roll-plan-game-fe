@@ -19,6 +19,7 @@ import {AuthenticationInterceptor} from './core/security/authentication.intercep
 import { CharacterViewComponent } from './features/character/character-view/character-view.component';
 import { ScoreModifierCalcPipe } from './features/character/character-view/ability-score-calc.pipe';
 import { CharacterCreateComponent } from './features/character/character-create/character-create.component';
+import { CharacterEditComponent } from './features/character/character-edit/character-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CharacterCreateComponent } from './features/character/character-create/
     PageNotFoundComponent,
     CharacterViewComponent,
     ScoreModifierCalcPipe,
-    CharacterCreateComponent
+    CharacterCreateComponent,
+    CharacterEditComponent
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,6 @@ import {Character} from '../Character';
 export class CharacterViewComponent implements OnInit {
   character: Character | undefined;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.character = history.state.character;
   }

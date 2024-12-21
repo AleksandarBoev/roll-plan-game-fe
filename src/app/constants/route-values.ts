@@ -3,6 +3,7 @@ export const routeValues = {
   CHARACTER: 'character',
   CHARACTER_VIEW: 'character/view',
   CHARACTER_CREATE: 'character/create',
+  CHARACTER_EDIT: 'character/edit',
   INVENTORY: 'inventory',
   INTERACTIONS: 'interactions',
   REGISTER: 'register',

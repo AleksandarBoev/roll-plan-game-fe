@@ -33,4 +33,8 @@ export class CharacterComponent implements OnInit {
     this.http.delete<void>(`${backendUrls.CHARACTER_URL}/${id}`)
       .subscribe(() => this.ngOnInit());
   }
+
+  editCharacter(character: Character) {
+    this.router.navigate(['character/edit'], {state: {character}});
+  }
 }

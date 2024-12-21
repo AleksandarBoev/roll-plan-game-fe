@@ -20,6 +20,7 @@ Instructions on how to run it can be found in it's README.
 
 | Version | Description                                                                                        |
 |---------|----------------------------------------------------------------------------------------------------|
+| 0.12.0  | Add character editing                                                                              |
 | 0.11.0  | Add character deletion                                                                             |
 | 0.10.0  | Add character creation                                                                             |
 | 0.9.0   | Send jwt authorization header for each BE request, add character listing and single character view |
