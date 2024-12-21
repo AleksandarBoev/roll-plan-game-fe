@@ -2,19 +2,65 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
-## Development server
+## Table of Contents
+- [Frameworks and Libraries](#frameworks-and-libraries)
+- [Setup and Running the Project](#setup-and-running-the-project)
+- [Functionalities](#functionalities)
+- [Versions](#versions)
 
-To start a local development server, run:
+## Frameworks and Libraries
+### Core Framework
+Angular (v19.0.4)
+
+### Additional Libraries
+- RxJS - For reactive programming.
+- Bootstrap - For responsive UI design.
+- Angular Forms - For handling forms.
+- TypeScript - Strongly typed JavaScript.
+- Angular CLI - For project scaffolding and management.
+
+## Setup and Running the Project
+### Prerequisites
+Install Node.js (LTS version recommended).
+
+Install Angular CLI globally:
+
+```bash
+npm install -g @angular/cli
+```
+
+### Steps to Run
+Clone the repository:
+
+```bash
+git clone https://github.com/AleksandarBoev/roll-plan-game-fe.git
+cd roll-plan-game-fe
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+Start the development server:
+
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open the application in your browser: http://localhost:4200/
 
+## BackEnd
 This Angular app depends on this Back-End Spring application: https://github.com/AleksandarBoev/roll-plan-game-be
 
 Instructions on how to run it can be found in it's README.
+
+## Functionalities
+### Features
+- Character Management - Create, view, edit, and delete characters.
+- User Authentication - Register, login and logout functionality with JWT.
+- Dynamic Routing - Routes dynamically protect pages based on logged in users and JWT tokens
 
 ## Versions
 
