@@ -28,10 +28,8 @@ export class CharacterComponent implements OnInit {
 
   protected readonly routeValues = routeValues;
 
-  deleteCharacter(id: string) {
-    console.log('Trying to delete character');
-    this.http.delete<void>(`${backendUrls.CHARACTER_URL}/${id}`)
-      .subscribe(() => this.ngOnInit());
+  deleteCharacter(character: Character) {
+    this.router.navigate(['character/delete'], {state: {character}});
   }
 
   editCharacter(character: Character) {

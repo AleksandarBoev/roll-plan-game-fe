@@ -1,0 +1,64 @@
+<div class="container-fluid text-center">
+  <h1>Character {{ character?.name }}</h1>
+</div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th scope="col">Race</th>
+    <th scope="col">Gender</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ character?.race }}</td>
+    <td>{{ character?.gender }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <table class="table mb-0">
+        <thead>
+        <tr>
+          <th scope="col">Stat</th>
+          <th scope="col">Score</th>
+          <th scope="col">Modifier</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">Strength</th>
+          <td>{{ character?.strength }}</td>
+          <td>{{ character?.strength | scoreModifierCalc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Dexterity</th>
+          <td>{{ character?.dexterity }}</td>
+          <td>{{ character?.dexterity | scoreModifierCalc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Constitution</th>
+          <td>{{ character?.constitution }}</td>
+          <td>{{ character?.constitution | scoreModifierCalc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Intelligence</th>
+          <td>{{ character?.intelligence }}</td>
+          <td>{{ character?.intelligence | scoreModifierCalc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Wisdom</th>
+          <td>{{ character?.wisdom }}</td>
+          <td>{{ character?.wisdom | scoreModifierCalc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Charisma</th>
+          <td>{{ character?.charisma }}</td>
+          <td>{{ character?.charisma | scoreModifierCalc }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-danger" (click)="deleteCharacter()">Delete</button>

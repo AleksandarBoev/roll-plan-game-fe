@@ -13,6 +13,7 @@ import {canActivateProtectedPage} from './core/security/app.guard';
 import {CharacterViewComponent} from './features/character/character-view/character-view.component';
 import {CharacterCreateComponent} from './features/character/character-create/character-create.component';
 import {CharacterEditComponent} from './features/character/character-edit/character-edit.component';
+import {CharacterDeleteComponent} from './features/character/character-delete/character-delete.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'hearth', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: routeValues.CHARACTER_VIEW, component: CharacterViewComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.CHARACTER_CREATE, component: CharacterCreateComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.CHARACTER_EDIT, component: CharacterEditComponent, canActivate: [canActivateProtectedPage]},
+  {path: routeValues.CHARACTER_DELETE, component: CharacterDeleteComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.INVENTORY, component: InventoryComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.INTERACTIONS, component: InteractionsComponent, canActivate: [canActivateProtectedPage]},
   {path: routeValues.REGISTER, component: RegisterComponent},
