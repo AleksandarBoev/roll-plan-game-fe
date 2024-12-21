@@ -20,6 +20,7 @@ Instructions on how to run it can be found in it's README.
 
 | Version | Description                                                                                        |
 |---------|----------------------------------------------------------------------------------------------------|
+| 0.13.0  | Add basic global exception handling                                                                |
 | 0.12.1  | Change delete functionality                                                                        |
 | 0.12.0  | Add character editing                                                                              |
 | 0.11.0  | Add character deletion                                                                             |

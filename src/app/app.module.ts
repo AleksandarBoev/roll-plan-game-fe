@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -21,6 +21,7 @@ import { ScoreModifierCalcPipe } from './features/character/character-view/abili
 import { CharacterCreateComponent } from './features/character/character-create/character-create.component';
 import { CharacterEditComponent } from './features/character/character-edit/character-edit.component';
 import { CharacterDeleteComponent } from './features/character/character-delete/character-delete.component';
+import {GlobalErrorHandler} from './core/global-error-handler';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CharacterDeleteComponent } from './features/character/character-delete/
     FormsModule
   ],
   providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandler},
     provideHttpClient(withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,
