@@ -1,16 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Character} from '../Character';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-character-view',
   standalone: false,
-  templateUrl: './character-view.component.html',
-  styleUrl: './character-view.component.css'
+  templateUrl: './character-view.component.html'
 })
-export class CharacterViewComponent implements OnInit {
-  character: Character | undefined;
+export class CharacterViewComponent {
 
-  ngOnInit(): void {
-    this.character = history.state.character;
-  }
 }

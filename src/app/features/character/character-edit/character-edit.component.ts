@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, signal, ViewChild} from '@angular/core';
 import {Character} from '../Character';
 import {NgForm} from '@angular/forms';
 import {backendUrls} from '../../../constants/backend-urls';
@@ -10,24 +10,24 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-character-edit',
   standalone: false,
-
   templateUrl: './character-edit.component.html',
-  styleUrl: './character-edit.component.css'
 })
 export class CharacterEditComponent implements OnInit {
   protected readonly Gender = Gender;
+  protected readonly nameValueHint = signal('');
+  protected readonly races = this._getRacesSorted();
 
   @ViewChild('characterEditForm') form: NgForm | undefined;
   character: Character | undefined;
   characterName: string | undefined;
   characterRace: string | undefined;
   gender: string | undefined;
-  strength: string | undefined;
-  dexterity: string | undefined;
-  constitution: string | undefined;
-  intelligence: string | undefined;
-  wisdom: string | undefined;
-  charisma: string | undefined;
+  strength: number | undefined;
+  dexterity: number | undefined;
+  constitution: number | undefined;
+  intelligence: number | undefined;
+  wisdom: number | undefined;
+  charisma: number | undefined;
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }
@@ -60,8 +60,15 @@ export class CharacterEditComponent implements OnInit {
       })
   }
 
-  getRaces(): string[] {
-    return Object.values(Race);
+  /**
+   * Enable dynamic hint for name value input from form.
+   */
+  protected onInput(event: Event) {
+    this.nameValueHint.set((event.target as HTMLInputElement).value);
+  }
+
+  private _getRacesSorted(): string[] {
+    return Object.values(Race).sort((raceName1, raceName2) => raceName1.localeCompare(raceName2));
   }
 }
 
@@ -70,5 +77,17 @@ enum Gender {
 }
 
 enum Race {
-  ELF = 'Elf', HUMAN = 'Human', DWARF = 'Dwarf'
+  ELF = 'Elf',
+  HUMAN = 'Human',
+  DWARF = 'Dwarf',
+  DRAGONBORN = 'Dragonborn',
+  HALF_ELF = 'Half-elf',
+  GNOME = 'Gnome',
+  ORC = 'Orc',
+  HALF_ORC = 'Half-orc',
+  GITHYANKI = 'Githyanki',
+  HALFLING = 'Halfling',
+  AARAKOCRA = 'Aarakocra',
+  DROW = 'Drow',
+  KENKU = 'Kenku'
 }

@@ -9,8 +9,7 @@ import {routeValues} from '../../../constants/route-values';
   selector: 'app-character-delete',
   standalone: false,
 
-  templateUrl: './character-delete.component.html',
-  styleUrl: './character-delete.component.css'
+  templateUrl: './character-delete.component.html'
 })
 export class CharacterDeleteComponent implements OnInit {
   character: Character | undefined;

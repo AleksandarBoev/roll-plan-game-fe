@@ -5,3 +5,16 @@
 .center-button {
   text-align: center;
 }
+
+.center-button button {
+  font-size: 1em;
+}
+
+mat-card-header {
+  text-align: center;
+  flex-direction: column; /* By default, this angular component is already defined as display: flex. Adding this to center */
+}
+
+mat-grid-tile {
+  width: 20%
+}

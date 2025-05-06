@@ -3,10 +3,10 @@ export interface Character {
   "name": string,
   "race": string,
   "gender": string,
-  "strength": string,
-  "dexterity": string,
-  "constitution": string,
-  "intelligence": string,
-  "wisdom": string,
-  "charisma": string
+  "strength": number,
+  "dexterity": number,
+  "constitution": number,
+  "intelligence": number,
+  "wisdom": number,
+  "charisma": number
 }

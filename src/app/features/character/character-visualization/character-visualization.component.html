@@ -1,0 +1,29 @@
+<h1>{{character?.name}}</h1>
+
+<p>Race: {{character?.race}}</p>
+
+<p>Gender: {{character?.gender}}</p>
+
+<table mat-table [dataSource]="_getStats()" class="mat-elevation-z8">
+
+  <!-- Stat Name Column -->
+  <ng-container matColumnDef="statName">
+    <th mat-header-cell *matHeaderCellDef> Stat Name </th>
+    <td mat-cell *matCellDef="let stat"> {{stat.statName}} </td>
+  </ng-container>
+
+  <!-- Score Column -->
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score </th>
+    <td mat-cell *matCellDef="let stat"> {{stat.score}} </td>
+  </ng-container>
+
+  <!-- Modifier Column -->
+  <ng-container matColumnDef="modifier">
+    <th mat-header-cell *matHeaderCellDef> Modifier </th>
+    <td mat-cell *matCellDef="let stat"> {{stat.modifier}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

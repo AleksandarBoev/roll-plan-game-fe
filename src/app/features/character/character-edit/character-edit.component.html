@@ -1,59 +1,86 @@
-<form class="row g-3" #characterEditForm="ngForm" (ngSubmit)="editCharacter()">
-  <div class="col-md-6">
-    <label for="name" class="form-label">Character Name</label>
-    <input type="text" class="form-control" id="name" name="name" ngModel placeholder="Character Name..." [(ngModel)]="characterName">
-  </div>
-  <div class="col-md-6">
-    <label for="race" class="form-label">Race</label>
-    <select id="race" class="form-select" name="race" ngModel>
-      <option *ngFor="let race of getRaces()" [value]="race" [selected]="race === characterRace">{{ race }}</option>
-    </select>
-  </div>
+<form #characterEditForm="ngForm" (ngSubmit)="editCharacter()" autocomplete="off"
+      xmlns="http://www.w3.org/1999/html">
+  <mat-grid-list cols="3" rowHeight="5:1">
+    <mat-grid-tile>
+      <mat-form-field hintLabel="Max 50 characters">
+        <mat-label>Character Name</mat-label>
+        <input matInput maxlength="50" placeholder="Character Name..." (input)="onInput($event)" [(ngModel)]="characterName" name="name"/>
+        <mat-hint align="end">{{ nameValueHint().length }}/50</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
 
-  <fieldset class="row mb-3">
-    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" id="genderMale" name="gender" value="{{Gender.MALE}}" ngModel/>
-        <label class="form-check-label" for="genderMale">
-          {{ Gender.MALE }}
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" id="genderFemale" name="gender" value="{{Gender.FEMALE}}" ngModel/>
-        <label class="form-check-label" for="genderFemale">
-          {{ Gender.FEMALE }}
-        </label>
-      </div>
-    </div>
-  </fieldset>
+    <mat-grid-tile>
+      <mat-radio-group ngModel name="gender">
+        <mat-radio-button value="{{Gender.MALE}}">{{ Gender.MALE }}</mat-radio-button>
+        <mat-radio-button value="{{Gender.FEMALE}}">{{ Gender.FEMALE }}</mat-radio-button>
+      </mat-radio-group>
+    </mat-grid-tile>
 
-  <div class="col-md-4">
-    <label for="strength" class="form-label" >Strength</label>
-    <input type="number" class="form-control" id="strength" name="strength" [(ngModel)]="strength">
-  </div>
-  <div class="col-md-4">
-    <label for="dexterity" class="form-label" >Dexterity</label>
-    <input type="number" class="form-control" id="dexterity" name="dexterity" [(ngModel)]="dexterity" ngModel>
-  </div>
-  <div class="col-md-4">
-    <label for="constitution" class="form-label" >Constitution</label>
-    <input type="number" class="form-control" id="constitution" name="constitution" [(ngModel)]="constitution" ngModel>
-  </div>
-  <div class="col-md-4">
-    <label for="intelligence" class="form-label" >Intelligence</label>
-    <input type="number" class="form-control" id="intelligence" name="intelligence" [(ngModel)]="intelligence" ngModel>
-  </div>
-  <div class="col-md-4">
-    <label for="wisdom" class="form-label" >Wisdom</label>
-    <input type="number" class="form-control" id="wisdom" name="wisdom" [(ngModel)]="wisdom" ngModel>
-  </div>
-  <div class="col-md-4">
-    <label for="charisma" class="form-label" >Charisma</label>
-    <input type="number" class="form-control" id="charisma" name="charisma" [(ngModel)]="charisma" ngModel>
-  </div>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Race</mat-label>
+        <mat-select ngModel name="race" required>
+          <mat-option>--</mat-option>
+          @for (race of races; track race) {
+            <mat-option [value]="race">{{ race }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Edit</button>
-  </div>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Strength <span *ngIf="strength">({{ strength | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="strength" name="strength">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Dexterity <span *ngIf="dexterity">({{ dexterity | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="dexterity" name="dexterity">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Constitution <span *ngIf="constitution">({{ constitution | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="constitution" name="constitution">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Intelligence <span *ngIf="intelligence">({{ intelligence | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="intelligence" name="intelligence">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Wisdom <span *ngIf="wisdom">({{ wisdom | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="wisdom" name="wisdom">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Charisma <span *ngIf="charisma">({{ charisma | scoreModifierCalc }})</span>
+        </mat-label>
+        <input matInput type="number" [(ngModel)]="charisma" name="charisma">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <button type="submit">Edit</button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+
 </form>

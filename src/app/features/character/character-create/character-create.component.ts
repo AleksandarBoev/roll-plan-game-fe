@@ -1,6 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, signal, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Character} from '../Character';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {backendUrls} from '../../../constants/backend-urls';
@@ -14,19 +13,21 @@ import {routeValues} from '../../../constants/route-values';
 })
 export class CharacterCreateComponent {
   protected readonly Gender = Gender;
+  protected readonly nameValueHint = signal('');
+  protected readonly races = this._getRacesSorted();
+  protected strength = 8;
+  protected dexterity = 8;
+  protected constitution = 8;
+  protected wisdom = 8;
+  protected intelligence = 8;
+  protected charisma = 8;
 
   @ViewChild('characterCreationForm') form: NgForm | undefined;
-
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
-  getRaces(): string[] {
-    return Object.values(Race);
-  }
-
   createCharacter() {
-    //TODO add validations
     if (!this.form) {
       return;
     }
@@ -37,6 +38,17 @@ export class CharacterCreateComponent {
         this.router.navigate([routeValues.CHARACTER])
       })
   }
+
+  /**
+   * Enable dynamic hint for name value input from form.
+   */
+  protected onInput(event: Event) {
+    this.nameValueHint.set((event.target as HTMLInputElement).value);
+  }
+
+  private _getRacesSorted(): string[] {
+    return Object.values(Race).sort((raceName1, raceName2) => raceName1.localeCompare(raceName2));
+  }
 }
 
 enum Gender {
@@ -44,7 +56,19 @@ enum Gender {
 }
 
 enum Race {
-  ELF = 'Elf', HUMAN = 'Human', DWARF = 'Dwarf'
+  ELF = 'Elf',
+  HUMAN = 'Human',
+  DWARF = 'Dwarf',
+  DRAGONBORN = 'Dragonborn',
+  HALF_ELF = 'Half-elf',
+  GNOME = 'Gnome',
+  ORC = 'Orc',
+  HALF_ORC = 'Half-orc',
+  GITHYANKI = 'Githyanki',
+  HALFLING = 'Halfling',
+  AARAKOCRA = 'Aarakocra',
+  DROW = 'Drow',
+  KENKU = 'Kenku'
 }
 
 export interface CharacterCreateRequest {

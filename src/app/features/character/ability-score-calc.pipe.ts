@@ -6,12 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ScoreModifierCalcPipe implements PipeTransform {
 
-  transform(stat: string | undefined): string {
+  transform(stat: number | undefined): string {
     if (!stat) {
       return '';
     }
 
-    let result: number = Number.parseInt(stat);
+    let result: number = stat;
     result = (result - 10) / 2;
 
     result = Math.trunc(result);

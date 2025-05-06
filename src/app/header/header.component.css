@@ -4,3 +4,11 @@
   justify-content: space-between;
   margin: 0;
 }
+
+button {
+  font-size: 0.75em;
+}
+
+span {
+  padding-right: 1em;
+}

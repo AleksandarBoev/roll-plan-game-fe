@@ -1,30 +1,14 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-layout">
-  <!-- Functionality Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.HEARTH}}">Hearth</a>
-    </li>
-    <li *ngIf="storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.CHARACTER}}">Character</a>
-    </li>
-    <li *ngIf="storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.INVENTORY}}">Inventory</a>
-    </li>
-    <li *ngIf="storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.INTERACTIONS}}">Interactions</a>
-    </li>
-  </ul>
-
-  <!-- Profile Links-->
-  <ul class="navbar-nav">
-    <li *ngIf="!storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.REGISTER}}">Register</a>
-    </li>
-    <li *ngIf="!storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.LOGIN}}">Login</a>
-    </li>
-    <li *ngIf="storageService.isLoggedIn()" class="nav-item">
-      <a class="nav-link" routerLink="{{routeValues.LOGOUT}}">Logout</a>
-    </li>
-  </ul>
-</nav>
+<mat-toolbar color="primary" class="navbar-layout">
+  <div>
+    <span>RPG</span>
+    <button mat-button routerLink="{{routeValues.HEARTH}}">Hearth</button>
+    <button *ngIf="storageService.isLoggedIn()" mat-button routerLink="{{routeValues.CHARACTER}}">Character</button>
+    <button *ngIf="storageService.isLoggedIn()" mat-button routerLink="{{routeValues.INVENTORY}}">Inventory</button>
+    <button *ngIf="storageService.isLoggedIn()" mat-button routerLink="{{routeValues.INTERACTIONS}}">Interactions</button>
+  </div>
+  <div>
+    <button *ngIf="!storageService.isLoggedIn()" mat-button routerLink="{{routeValues.REGISTER}}">Register</button>
+    <button *ngIf="!storageService.isLoggedIn()" mat-button routerLink="{{routeValues.LOGIN}}">Login</button>
+    <button *ngIf="storageService.isLoggedIn()" mat-button routerLink="{{routeValues.LOGOUT}}">Logout</button>
+  </div>
+</mat-toolbar>

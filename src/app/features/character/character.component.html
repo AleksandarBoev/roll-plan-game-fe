@@ -1,18 +1,24 @@
 <div class="center-button">
-  <a class="btn btn-success btn-lg crud-button" routerLink="/{{routeValues.CHARACTER_CREATE}}">Create
-    Character</a>
+  <button mat-flat-button routerLink="/{{routeValues.CHARACTER_CREATE}}">
+    Create Character
+  </button>
 </div>
-<div class="row">
-  <div *ngFor="let character of characters" class="col-md-4 text-center overflow-hidden">
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let character of characters">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <div>
+          <mat-card-title>{{ character.name }}</mat-card-title>
+          <mat-card-subtitle>Race: {{ character.race }}</mat-card-subtitle>
+          <mat-card-subtitle>Gender: {{ character.gender }}</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <mat-card-actions>
+        <button (click)="viewCharacter(character)" mat-button>View</button>
+        <button (click)="editCharacter(character)" mat-button>Edit</button>
+        <button (click)="deleteCharacter(character)" mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 
-    <div class="my-3 p-3">
-      <p style="font-size: 30px" class="display-5">{{ character.name }}</p>
-      <p>Race: <strong>{{ character.race }}</strong></p>
-      <p>Gender: <strong>{{ character.gender }}</strong></p>
-    </div>
-
-    <a class="btn btn-secondary btn-lg crud-button" (click)="viewCharacter(character)">View</a>
-    <a class="btn btn-primary btn-lg crud-button" (click)="editCharacter(character)">Edit</a>
-    <a class="btn btn-danger btn-lg crud-button" (click)="deleteCharacter(character)">Delete</a>
-  </div>
-</div>

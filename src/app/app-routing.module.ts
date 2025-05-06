@@ -10,10 +10,10 @@ import {LoginComponent} from './features/login/login.component';
 import {LogoutComponent} from './features/logout/logout.component';
 import {routeValues} from './constants/route-values';
 import {canActivateProtectedPage} from './core/security/app.guard';
-import {CharacterViewComponent} from './features/character/character-view/character-view.component';
 import {CharacterCreateComponent} from './features/character/character-create/character-create.component';
 import {CharacterEditComponent} from './features/character/character-edit/character-edit.component';
 import {CharacterDeleteComponent} from './features/character/character-delete/character-delete.component';
+import {CharacterViewComponent} from './features/character/character-view/character-view.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'hearth', pathMatch: 'full'},
